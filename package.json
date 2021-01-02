@@ -1,9 +1,7 @@
 {
   "name": "book-rant",
   "version": "1.4.0",
-  "main": "dist/index.js",
   "private": true,
-  "homepage": "https://demos.creative-tim.com/now-ui-dashboard-react/#/",
   "dependencies": {
     "axios": "^0.21.1",
     "bootstrap": "4.5.0",

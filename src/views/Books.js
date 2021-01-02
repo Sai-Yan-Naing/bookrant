@@ -16,7 +16,7 @@
 
 */
 import React from "react";
-import {BrowserRouter,Router,Route,Switch,Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 // reactstrap components
 import {
   Card,
@@ -32,15 +32,12 @@ import {
 import PanelHeader from "components/PanelHeader/PanelHeader.js";
 
 import { thead, tbody } from "variables/general";
-import BookDetail from './BookDetail';
-import BookNew from './BookNew';
 class RegularTables extends React.Component {
 constructor(props) {
       super(props);
 
       this.state = {
         items: [],
-        isLoaded: false,
       }
     }
 

@@ -23,17 +23,15 @@ import {
   CardBody,
   CardHeader,
   CardTitle,
-  Table,
   Row,
   Col,
   Form,
-  FormGroup,Label,Input,FormText,Button
+  FormGroup,Label,Input,Button
 } from "reactstrap";
 // core components
 import PanelHeader from "components/PanelHeader/PanelHeader.js";
 import axios from 'axios';
 
-import { thead, tbody } from "variables/general";
 
 class BookEdit extends React.Component {
   constructor(props) {

@@ -1,23 +1,17 @@
 import React from "react";
 
-import { Route, Switch, Redirect,useHistory  } from "react-router-dom";
-
 import {
   Card,
   CardBody,
   CardHeader,
   CardTitle,
-  Table,
   Row,
   Col,
   Form,
-  FormGroup,Label,Input,FormText,Button
+  FormGroup,Label,Input,Button
 } from "reactstrap";
 // core components
 import PanelHeader from "components/PanelHeader/PanelHeader.js";
-
-import { thead, tbody } from "variables/general";
-import Books from './Books';
 import axios from 'axios';
 class BookNew extends React.Component{
 	constructor(props) {

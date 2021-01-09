@@ -19,6 +19,7 @@ constructor(props) {
       super(props);
 
       this.state = {
+        isLoaded: false,
         items: [],
       }
     }
@@ -38,7 +39,6 @@ constructor(props) {
 
   deleteBook(itemId) {
     const { items } = this.state;
-    const { isLoaded }  = this.state;
 
     const apiUrl = 'https://rails-backend-api-test.herokuapp.com/api/v1/articles/'+itemId;
     const formData = new FormData();
@@ -55,7 +55,6 @@ constructor(props) {
         (json) => {
          alert(json.status);
           this.setState({
-            isLoaded: true,
             items: items.filter(item => item.id !== itemId),
           });
         }

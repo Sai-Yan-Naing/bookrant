@@ -32,14 +32,18 @@ class BookDetail extends React.Component {
     .then(res => res.json())
     .then(json => {
         this.setState({
-            isLoaded: true,
+            isLoaded:true,
             items: json.data,
             });
         });
   }
   render() {
   var { isLoaded, items } = this.state;
-  {console.log(items)}
+  
+  if(!isLoaded){
+            return <div className="mt-5 row justify-content-center"><div className="mt-5 spinner-border" style={{width:"4rem",height:"4rem", fontSize:"20px"}}></div></div>
+          ;
+        }else{
     return (
       <>
         <PanelHeader size="sm" />
@@ -124,6 +128,7 @@ class BookDetail extends React.Component {
         </div>
       </>
     );
+  }
   }
 }
 

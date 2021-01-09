@@ -24,14 +24,10 @@
     "validator": "^13.5.2"
   },
   "scripts": {
-    "start": "set PORT=8888 && react-scripts start",
-    "build": "react-scripts build && gulp licenses",
+    "start": "set PORT=10000 && react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
-    "compile-sass": "node-sass src/assets/scss/now-ui-dashboard.scss src/assets/css/now-ui-dashboard.css",
-    "minify-sass": "node-sass src/assets/scss/now-ui-dashboard.scss src/assets/css/now-ui-dashboard.min.css --output-style compressed",
-    "map-sass": "node-sass src/assets/scss/now-ui-dashboard.scss src/assets/css/now-ui-dashboard.css --source-map true"
+    "eject": "react-scripts eject"
   },
   "optionalDependencies": {
     "@types/googlemaps": "3.39.6",

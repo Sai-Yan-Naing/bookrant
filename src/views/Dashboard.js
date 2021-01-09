@@ -1,20 +1,4 @@
-/*!
 
-=========================================================
-* Now UI Dashboard React - v1.4.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/now-ui-dashboard-react
-* Copyright 2020 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/now-ui-dashboard-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React from "react";
 import {Link} from 'react-router-dom';
 // reactstrap components
@@ -29,7 +13,7 @@ import {
 } from "reactstrap";
 
 // core components
-import PanelHeader from "components/PanelHeader/PanelHeader.js";
+// import PanelHeader from "components/PanelHeader/PanelHeader.js";
 
 import { thead, tbody } from "variables/general";
 
@@ -62,8 +46,7 @@ constructor(props) {
         }else{
     return (
       <>
-        <PanelHeader size="sm" />
-        <div className="content">
+        <div size="sm" />
           <Row>
             <Col xs={12}>
               <Card>
@@ -71,14 +54,14 @@ constructor(props) {
                   <CardTitle tag="h4">Report Table</CardTitle>
                 </CardHeader>
                 <CardBody>
-                  <Table responsive >
+                  <Table responsive bordered >
                     <thead className="text-primary">
                       <tr>
-                        <th>No.</th>
-                        <th>Book Title</th>
-                        <th>Price</th>
-                        <th>Count</th>
-                        <th>Total</th>
+                        <td>No.</td>
+                        <td>Book Title</td>
+                        <td>Price</td>
+                        <td>Count</td>
+                        <td>Total</td>
                       </tr>
                     </thead>
                     <tbody>
@@ -102,39 +85,7 @@ constructor(props) {
                 </CardBody>
               </Card>
             </Col>
-            <Col xs={12}>
-              <Card className="card-plain">
-                <CardHeader>
-                  <CardTitle tag="h4">Table on Plain Background</CardTitle>
-                  <p className="category"> Here is a subtitle for this table</p>
-                </CardHeader>
-                <CardBody>
-                  <Table responsive>
-                    <thead className="text-primary">
-                      <tr>
-                        <th>No.</th>
-                        <th>Book</th>
-                        <th>Description</th>
-                        <th>Price</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {items.data.map( item => (
-
-                          <tr key={item.id} >
-                            <td  className=""><Link to={'/details/1'}>{item.id}</Link></td>
-                            <td  className="">{item.title}</td>
-                            <td  className="">{item.body}</td>
-                            <td  className="">{item.body}</td>
-                          </tr>
-                      ))}
-                    </tbody>
-                  </Table>
-                </CardBody>
-              </Card>
-            </Col>
           </Row>
-        </div>
       </>
     );
   }

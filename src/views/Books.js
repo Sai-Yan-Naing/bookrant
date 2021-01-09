@@ -97,7 +97,7 @@ constructor(props) {
                             <td  className="">{item.title}</td>
                             <td  className="">{item.body}</td>
                             <td  className="">{item.body}</td>
-                            <td  colSpan="3"><Link className="text-warning mr-3" to={'/admin/bookedit/'+item.id}><i className="fas fa-edit"></i></Link><a onClick={() => this.deleteBook(item.id)}><i className="fas fa-trash-alt"></i></a></td>
+                            <td  colSpan="3"><Link className="text-warning mr-3" to={'/admin/bookedit/'+item.id}><i className="fas fa-edit"></i></Link><span href="#" onClick={() => this.deleteBook(item.id)}><i className="fas fa-trash-alt"></i></span></td>
                           </tr>
                       ))}
                       <tr>

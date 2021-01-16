@@ -3,7 +3,7 @@ import React from "react";
 import PerfectScrollbar from "perfect-scrollbar";
 
 // reactstrap components
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch,Redirect } from "react-router-dom";
 
 // core components
 import DemoNavbar from "components/Navbars/DemoNavbar.js";
@@ -14,7 +14,7 @@ import BookDetail from "views/BookDetail.js";
 import BookEdit from "views/BookEdit.js";
 import BookNew from "views/BookNew.js";
 import routes from "routes.js";
-
+import Login from "views/Login.js";
 
 var ps;
 
@@ -46,43 +46,44 @@ class Dashboard extends React.Component {
     this.setState({ backgroundColor: color });
   };
   render() {
-    return (
-      <div className="wrapper">
-        <Sidebar
-          {...this.props}
-          routes={routes}
-          backgroundColor={this.state.backgroundColor}
-        />
-        <div className="main-panel" ref={this.mainPanel}>
-          <DemoNavbar {...this.props} />
-          <Switch>
-            {routes.map((prop, key) => {
-              return (
-                <Route
-                  path={prop.layout + prop.path}
-                  component={prop.component}
-                  key={key}
-                />
-              );
-            })}
-          </Switch>
-          <Switch>
-            <Route path="/admin/bookdetail/:id" component={BookDetail}/>
-          </Switch>
-          <Switch>
-            <Route path="/admin/bookedit/:id" component={BookEdit}/>
-          </Switch>
-          <Switch>
-            <Route path="/admin/booknew/" component={BookNew}/>
-          </Switch>
-          <Footer fluid />
-        </div>
-        <FixedPlugin
-          bgColor={this.state.backgroundColor}
-          handleColorClick={this.handleColorClick}
-        />
-      </div>
-    );
+          return (
+            <div className="wrapper">
+              <Sidebar
+                {...this.props}
+                routes={routes}
+                backgroundColor={this.state.backgroundColor}
+              />
+              <div className="main-panel" ref={this.mainPanel}>
+                <DemoNavbar {...this.props} />
+                <Switch>
+                  {routes.map((prop, key) => {
+                    return (
+                      <Route
+                        path={prop.layout + prop.path}
+                        component={prop.component}
+                        key={key}
+                      />
+                    );
+                  })}
+                </Switch>
+                <Switch>
+                  <Route path="/admin/bookdetail/:id" component={BookDetail}/>
+                </Switch>
+                <Switch>
+                  <Route path="/admin/bookedit/:id" component={BookEdit}/>
+                </Switch>
+                <Switch>
+                  <Route path="/admin/booknew/" component={BookNew}/>
+                </Switch>
+                <Footer fluid />
+              </div>
+              <FixedPlugin
+                bgColor={this.state.backgroundColor}
+                handleColorClick={this.handleColorClick}
+              />
+            </div>
+          );
+    
   }
 }
 

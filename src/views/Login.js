@@ -4,7 +4,6 @@ import {
   CardBody,
   CardHeader,
   CardTitle,
-  Col,
 } from "reactstrap";
 import Carousel from 'react-bootstrap/Carousel';
 
@@ -29,8 +28,6 @@ constructor(props) {
         description: "",
         password: "",
         confirmPassword: "",
-        isLoaded: false,
-
     };
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -44,7 +41,7 @@ constructor(props) {
 	  }
 
 	 handleSubmit(event) {
-		  const { title, body, isLoaded } = this.state;
+		  const { title, body } = this.state;
 		    alert('A name was submitted: ' + title + body);
 		    event.preventDefault();
 		    const apiUrl = 'https://rails-backend-api-test.herokuapp.com/api/v1/articles/55';

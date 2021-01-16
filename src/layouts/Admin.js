@@ -3,7 +3,7 @@ import React from "react";
 import PerfectScrollbar from "perfect-scrollbar";
 
 // reactstrap components
-import { Route, Switch,Redirect } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 // core components
 import DemoNavbar from "components/Navbars/DemoNavbar.js";
@@ -14,7 +14,6 @@ import BookDetail from "views/BookDetail.js";
 import BookEdit from "views/BookEdit.js";
 import BookNew from "views/BookNew.js";
 import routes from "routes.js";
-import Login from "views/Login.js";
 
 var ps;
 

@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { createBrowserHistory } from "history";
-import { Router, Route, Switch, Redirect } from "react-router-dom";
+import { Router, Route, Switch } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.css";
 import "assets/scss/now-ui-dashboard.scss?v1.4.0";
@@ -11,16 +11,11 @@ import Login from "views/Login.js";
 import AdminLayout from "layouts/Admin.js";
 
 const hist = createBrowserHistory();
-const userStr = sessionStorage.getItem('current_user');
 ReactDOM.render(
   <Router history={hist}>
     <Switch>
       <Route path="/login" component={Login}/>
-     if(current_user){
 	      <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
-	  }else{
-	  	<Redirect to="/login" />
-	  }
     </Switch>
   </Router>,
   document.getElementById("root")

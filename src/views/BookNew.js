@@ -12,17 +12,18 @@ import {
 import axios from 'axios';
 // for form validation
 import { ValidationForm, TextInput } from 'react-bootstrap4-form-validation';
-import validator from 'validator'
 //end validation
 class BookNew extends React.Component{
 	constructor(props) {
       super(props);
 
-      this.state = {title: '',body: '',
-        email: "",
-        description: "",
-        password: "",
-        confirmPassword: "",};
+      this.state = {
+        author: '',
+        bookname: '',
+        type: "",
+        qty: "",
+        price: "",
+        year: "",};
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -33,16 +34,12 @@ class BookNew extends React.Component{
 	        [event.target.name]: value
 	      });
 	  }
-    matchPassword = (value) => {
-        return value && value === this.state.password;   
-    }
 
 	 handleSubmit(event) {
-		  const { title, body } = this.state;
-		    alert('A name was submitted: ' + title + body);
+		  const { author, bookname,type,qty,price,year } = this.state;
 		    event.preventDefault();
 		    const apiUrl = 'https://rails-backend-api-test.herokuapp.com/api/v1/articles/';
-		    axios.post(apiUrl, { title, body })
+		    axios.post(apiUrl, {  author, bookname,type,qty,price,year })
 		          .then((result) => {
 		            console.log(result);
 		            alert(result.status);
@@ -65,50 +62,48 @@ class BookNew extends React.Component{
                 	<div className="container">
 	                	<ValidationForm onSubmit={this.handleSubmit} onErrorSubmit={this.handleErrorSubmit}>
                         <div className="form-group">
-                            <label htmlFor="title">Title</label>
-                            <TextInput name="title" id="title" required
-                                value={this.state.title}
+                            <label htmlFor="author">Author</label>
+                            <TextInput name="author" id="author" required
+                                value={this.state.author}
                                 onChange={this.handleChange}
                             />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="body">Body</label>
-                            <TextInput name="body" id="body" minLength="4"
-                                value={this.state.body}
+                            <label htmlFor="bookname"> Book Name</label>
+                            <TextInput name="bookname" id="bookname" minLength="4"
+                                value={this.state.bookname}
                                 onChange={this.handleChange}
                             />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="email">Email</label>
-                            <TextInput name="email" id="email" type="email" 
-                                validator={validator.isEmail} 
-                                errorMessage={{validator:"Please enter a valid email"}}
-                                value={this.state.email}
+                            <label htmlFor="type">Type</label>
+                            <TextInput name="type" id="type" type="type" required
+                                value={this.state.type}
                                 onChange={this.handleChange}
                                 />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="description">Description</label>
-                            <TextInput name="description" id="description" style={{border: "solid 1px #ccc", borderRadius:"10px"}} multiline required
-                                value={this.state.description}
+                            <label htmlFor="qty">Qty</label>
+                            <TextInput name="qty" id="qty" required
+                                pattern="[0-9]*"
+                                errorMessage={{required:"Qty is required", pattern: "Quantity must be number only"}}
+                                value={this.state.qty}
                                 onChange={this.handleChange}
                                 rows="5"/>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="password">Password</label>
-                            <TextInput name="password" id="password" type="password" required 
-                                pattern="(?=.*[A-Z]).{6,}"
-                                errorMessage={{required:"Password is required", pattern: "Password should be at least 6 characters and contains at least one upper case letter"}}
-                                value={this.state.password}
+                            <label htmlFor="price">Price</label>
+                            <TextInput name="price" id="price" type="price" required 
+                                pattern="[+-]?\d+(?:[.,]\d+)?"
+                                errorMessage={{required:"Price is required", pattern: "Price must be float only"}}
+                                value={this.state.price}
                                 onChange={this.handleChange}
                             />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="confirmPassword">Confirm Password</label>
-                            <TextInput name="confirmPassword" id="confirmPassword" type="password" required 
-                                validator={this.matchPassword}
-                                errorMessage={{required:"Confirm password is required", validator: "Password does not match"}}
-                                value={this.state.confirmPassword}
+                            <label htmlFor="year">Year</label>
+                            <TextInput name="year" id="year" type="date" required 
+                                value={this.state.year}
                                 onChange={this.handleChange}
                             />
                         </div>
@@ -116,7 +111,7 @@ class BookNew extends React.Component{
                             <button className="btn btn-primary">Submit</button>
                         </div>
                     </ValidationForm>
-					</div>
+					        </div>
                 </CardBody>
               </Card>
             </Col>

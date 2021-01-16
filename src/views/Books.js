@@ -83,9 +83,12 @@ constructor(props) {
                     <thead className="text-primary">
                       <tr>
                         <th>No.</th>
-                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Book Name</th>
+                        <th>Type</th>
+                        <th>Qty</th>
                         <th>Price</th>
-                        <th>Description</th>
+                        <th>Year</th>
                         <th colSpan="3">Action</th>
                       </tr>
                     </thead>
@@ -95,6 +98,9 @@ constructor(props) {
                           <tr key={item.id} >
                             <td  className=""><Link to={'/admin/bookdetail/'+item.id}>{item.id}</Link></td>
                             <td  className="">{item.title}</td>
+                            <td  className="">{item.title}</td>
+                            <td  className="">{item.title}</td>
+                            <td  className="">{item.body}</td>
                             <td  className="">{item.body}</td>
                             <td  className="">{item.body}</td>
                             <td  colSpan="3"><Link className="text-warning mr-3" to={'/admin/bookedit/'+item.id}><i className="fas fa-edit"></i></Link><span onClick={() => this.deleteBook(item.id)}><i className="fas fa-trash-alt"></i></span></td>

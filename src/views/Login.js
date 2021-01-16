@@ -44,7 +44,7 @@ constructor(props) {
 		  const { title, body } = this.state;
 		    alert('A name was submitted: ' + title + body);
 		    event.preventDefault();
-		    const apiUrl = 'https://rails-backend-api-test.herokuapp.com/api/v1/articles/55';
+		    const apiUrl = 'https://rails-backend-api-test.herokuapp.com/api/v1/articles/49';
 		    axios.get(apiUrl, { title, body })
 		          .then((result) => {
 		            console.log(result);

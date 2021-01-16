@@ -35,14 +35,15 @@ constructor(props) {
     .then(json => {
         this.setState({
             isLoaded: true,
-            items: json,
+            items: json.data,
             });
         });
   }
   render() {
   var { isLoaded, items } = this.state;
   if(!isLoaded){
-            return <div>Loading .......</div>;
+            return <div className="mt-5 row justify-content-center"><div className="mt-5 spinner-border" style={{width:"4rem",height:"4rem", fontSize:"20px"}}></div></div>
+          ;
         }else{
     return (
       <>
@@ -51,24 +52,28 @@ constructor(props) {
             <Col xs={12}>
               <Card>
                 <CardHeader>
-                  <CardTitle tag="h4">Report Table</CardTitle>
+                  <CardTitle tag="h4">Books</CardTitle>
                 </CardHeader>
                 <CardBody>
-                  <Table responsive bordered >
+                  <Table responsive >
                     <thead className="text-primary">
                       <tr>
-                        <td>No.</td>
-                        <td>Book Title</td>
-                        <td>Price</td>
-                        <td>Count</td>
-                        <td>Total</td>
+                        <th>No.</th>
+                        <th>Renter</th>
+                        <th>Book Name</th>
+                        <th>Type</th>
+                        <th>RentDate</th>
+                        <th>ReturnDate</th>
+                        <th>Status</th>
                       </tr>
                     </thead>
                     <tbody>
-                      {items.data.map( item => (
+                      {items.map( item => (
 
                           <tr key={item.id} >
-                            <td  className=""><Link to={'/details/1'}>{item.id}</Link></td>
+                            <td  className=""><Link to={'/admin/bookdetail/'+item.id}>{item.id}</Link></td>
+                            <td  className="">{item.title}</td>
+                            <td  className="">{item.title}</td>
                             <td  className="">{item.title}</td>
                             <td  className="">{item.body}</td>
                             <td  className="">{item.body}</td>
@@ -76,7 +81,7 @@ constructor(props) {
                           </tr>
                       ))}
                       <tr>
-                        <th colSpan="3">Total</th>
+                        <th colSpan="2">Total</th>
                         <th>Count</th>
                         <th>Total</th>
                       </tr>

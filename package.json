@@ -1,5 +1,5 @@
 {
-  "name": "book-rant",
+  "name": "now-ui-dashboard-react",
   "version": "1.4.0",
   "private": true,
   "dependencies": {
@@ -22,10 +22,13 @@
     "react-router-dom": "5.2.0",
     "react-scripts": "3.4.1",
     "reactstrap": "8.4.1",
-    "validator": "^13.5.2"
+    "validator": "^13.5.2",
+    "engines": {
+      "node": "12.11.1"
+    }
   },
   "scripts": {
-    "start": "set PORT=10000 && react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
